@@ -97,4 +97,80 @@ const func2:funcPara=(a,b,l)=>{
 
     return a * b * l
 
+}  
+ 
+// functions   
+type functyoe=(...n:Array<number>)=>Array<number| string> 
+ 
+const func3:functyoe=(...n)=>{ 
+    console.log(n) 
+    n.forEach(item => {
+        console.log(item ) 
+        
+    })
+    return n
+}
+  
+func3(25,34,34,4,4,5,4) 
+const i=func3(33); 
+console.log(i) 
+
+// function with objects 
+interface product{
+    name:string, 
+    stock?:number, 
+    photo:string, 
+    age:number 
+    readonly id : string
+}  
+
+type getData =(product:product)=>void
+
+ const obj4:getData=(product)=>{ 
+//    product.id="asd"  we can't modify it bcz it is read only 
+// product.name="Gabru"  by accessing this we can vchange its value
+  console.log(product)
+ } 
+ const productone:product={
+    name:"Rishang", 
+    photo:"profile", 
+    age:20, 
+    id:"afsasdf"
+ } 
+ obj4((productone)); 
+ obj4({
+    name:"aPPLE", 
+    stock:22, 
+    age:4, 
+    photo:"apple", 
+    id:"asfdf"
+ }) 
+  
+
+//  Never type  
+
+ const error=():never=>{
+    throw new Error()  
+    // return new Error() can't bcz type is error 
+ } 
+  
+ 
+// classes in typescript 
+ 
+// basic class in js 
+ 
+class player{
+    height;  
+    weight; 
+
+    constructor(height:number,weight:number){ 
+        this.height=height; 
+        this.weight=weight
+        
+    }
+
 } 
+const rishang=new player(187,79) ; 
+// rishang.height; 
+// rishang.weight; 
+console.log(rishang.weight)

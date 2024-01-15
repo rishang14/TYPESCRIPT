@@ -58,3 +58,49 @@ const func2 = (a, b, l) => {
         return a * b;
     return a * b * l;
 };
+const func3 = (...n) => {
+    console.log(n);
+    n.forEach(item => {
+        console.log(item);
+    });
+    return n;
+};
+func3(25, 34, 34, 4, 4, 5, 4);
+const i = func3(33);
+console.log(i);
+const obj4 = (product) => {
+    //    product.id="asd"  we can't modify it bcz it is read only 
+    // product.name="Gabru"  by accessing this we can vchange its value
+    console.log(product);
+};
+const productone = {
+    name: "Rishang",
+    photo: "profile",
+    age: 20,
+    id: "afsasdf"
+};
+obj4((productone));
+obj4({
+    name: "aPPLE",
+    stock: 22,
+    age: 4,
+    photo: "apple",
+    id: "asfdf"
+});
+//  Never type  
+const error = () => {
+    throw new Error();
+    // return new Error() can't bcz type is error 
+};
+// classes in typescript 
+// basic class in js 
+class player {
+    constructor(height, weight) {
+        this.height = height;
+        this.weight = weight;
+    }
+}
+const rishang = new player(187, 79);
+// rishang.height; 
+// rishang.weight; 
+console.log(rishang.weight);
