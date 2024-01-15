@@ -95,12 +95,77 @@ const error = () => {
 // classes in typescript 
 // basic class in js 
 class player {
-    constructor(height, weight) {
+    constructor(height, weight, power) {
         this.height = height;
-        this.weight = weight;
+        this.power = power;
+    }
+    get myheight() {
+        return this.height;
+    }
+    get mypower() {
+        return this.power;
+    }
+    set heightagain(val) {
+        this.height = val;
     }
 }
-const rishang = new player(187, 79);
+// const rishang=new player(187,79) ; 
 // rishang.height; 
 // rishang.weight; 
-console.log(rishang.weight);
+const rishang = new player(1000, 225, 100000);
+console.log(rishang.myheight);
+// console.log(rishang.height) can't access bcz its private  
+console.log(rishang);
+console.log(rishang.heightagain = 23);
+// class theGirlRishangIsFinding {
+//     constructor(
+//         public past:string, 
+//         public isSheWearSpecs:boolean,
+//         readonly herLoyalty:String,  
+//         private mineSecret:string
+//     ){} 
+//     get getMySecret(){
+//        return  this.mineSecret
+//     }
+// } 
+// const RishangProposedher=new theGirlRishangIsFinding("clean",true,"towardsRishang","safe") 
+// RishangProposedher.herLoyalty="towardsXyz"  //not possible to change bcz it is read only 
+// console.log(RishangProposedher.minesecret) // not possible to access by anyone except rishang  
+// Dom in ts 
+//  type assertion  
+// there are three ways to tell ts  
+// 1 const btn=document.getElementById('btn') as HTMLElement   
+// 2 const btn= <HTMLElement> document.getElementById("btn"); 
+const btn = document.getElementById("btn");
+btn.onclick = () => {
+    btn.innerText = "clicked";
+};
+const form = document.getElementById("myform");
+const input = document.querySelector("input");
+const h2 = document.getElementById('number');
+form.onsubmit = (e) => {
+    e.preventDefault();
+    const value = Number(input.value);
+    let sum = 20;
+    const total = value + sum;
+    h2.textContent = total.toString();
+};
+const obj5 = {
+    name: "rishang",
+    email: "rishangkumar9693@gmail.com",
+};
+const key = "name";
+obj5[key];
+const getName = () => {
+    return obj5["name"];
+};
+const getEmail = () => {
+    return obj5["email"];
+};
+const getData = (key) => {
+    return obj5[key];
+};
+console.log(getEmail());
+console.log(getName());
+console.log(getData("name"));
+console.log(getData("email"));

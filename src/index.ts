@@ -159,18 +159,129 @@ type getData =(product:product)=>void
  
 // basic class in js 
  
-class player{
-    height;  
-    weight; 
+class player{ 
+    constructor(
+        private height:number,
+        weight:number,  
+        protected power:number
 
-    constructor(height:number,weight:number){ 
-        this.height=height; 
-        this.weight=weight
-        
+    ){} 
+     
+    get myheight(){
+        return this.height
+    } 
+      
+    get mypower(){
+        return this.power
+    }
+ 
+    set heightagain(val:number){ 
+        this.height=val
+
     }
 
 } 
-const rishang=new player(187,79) ; 
+// const rishang=new player(187,79) ; 
 // rishang.height; 
 // rishang.weight; 
-console.log(rishang.weight)
+const rishang= new player(1000,225,100000)  
+console.log(rishang.myheight)  
+// console.log(rishang.height) can't access bcz its private  
+console.log(rishang)
+console.log(rishang.heightagain=23) 
+ 
+
+// class theGirlRishangIsFinding {
+//     constructor(
+//         public past:string, 
+//         public isSheWearSpecs:boolean,
+//         readonly herLoyalty:String,  
+//         private mineSecret:string
+        
+//     ){} 
+
+//     get getMySecret(){
+//        return  this.mineSecret
+//     }
+// } 
+ 
+// const RishangProposedher=new theGirlRishangIsFinding("clean",true,"towardsRishang","safe") 
+// RishangProposedher.herLoyalty="towardsXyz"  //not possible to change bcz it is read only 
+// console.log(RishangProposedher.minesecret) // not possible to access by anyone except rishang  
+ 
+
+// Dom in ts 
+ 
+//  type assertion  
+// there are three ways to tell ts  
+// 1 const btn=document.getElementById('btn') as HTMLElement   
+// 2 const btn= <HTMLElement> document.getElementById("btn"); 
+const btn=document.getElementById("btn")! 
+btn.onclick=()=>{
+    btn.innerText="clicked"
+} 
+const form=document.getElementById("myform") as HTMLFormElement  
+const input=document.querySelector("input") as HTMLInputElement
+const h2=document.getElementById('number') !
+
+ form.onsubmit=(e)=>{ 
+    e.preventDefault(); 
+    const value=Number(input.value)   
+    let  sum =20 
+    const total =value+ sum 
+    h2.textContent= total.toString()   
+
+ } 
+
+//  interface obj5{
+//     name:string, 
+//     email:string
+//  } 
+//  const obj5:obj5={
+//     name:"rishang", 
+//     email:"rishangkumar9693@gmail.com"
+//  } 
+
+//   const geteamil=():string=>{
+//     return obj5.name
+//   }  
+   
+//   const getName=():string=>{
+//     return obj5.name
+//   } 
+   
+//   const getData=(key:string):string=>{ 
+//     return obj5[key]
+
+//   } 
+// in the above example we are getting error  
+interface obj5{
+//    [key:string]:string 
+   name:string, 
+   email:string 
+ } 
+
+ const obj5:obj5={
+    name:"rishang", 
+    email:"rishangkumar9693@gmail.com",  
+ 
+    
+ }  
+ const key="name"
+ obj5[key as keyof obj5]
+
+  const getName=():string=>{
+    return obj5["name"]
+  }  
+   
+  const getEmail=():string=>{
+    return obj5["email"]
+  } 
+   
+  const getData=(key : keyof obj5):string=>{ 
+       return obj5[key]
+  } 
+  console.log(getEmail()) 
+  console.log(getName()) 
+  console.log(getData("name")) 
+  console.log(getData("email"))
