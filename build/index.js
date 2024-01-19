@@ -169,3 +169,31 @@ console.log(getEmail());
 console.log(getName());
 console.log(getData("name"));
 console.log(getData("email"));
+const user = {
+    name: "Rishang",
+    email: "rishangkumar9693@gmail.com"
+};
+const user5 = {
+    harry: {
+        age: 19,
+        dob: 16
+    },
+    levi: {
+        age: 20,
+        dob: 11
+    },
+    Rishang: {
+        age: 20,
+        dob: 14
+    }, jalaj: {
+        age: 21,
+        dob: "feb"
+    }
+};
+const user6 = {
+    city: "Samastipur",
+    state: "bihar",
+    status: "completed"
+};
+// omit  =>  opposite to pick  like in pick we write which we want to pick and in this we write which we want to leave  
+// Exclude 

@@ -90,106 +90,106 @@ const obj3: newObj = {
 obj3.func(20, 30);
 
 // function in ts   
-type funcPara=(n:number,m:number,l?:number)=> number | void
- 
-const func2:funcPara=(a,b,l)=>{  
-    if(typeof l=== "undefined") return  a*b
+type funcPara = (n: number, m: number, l?: number) => number | void
+
+const func2: funcPara = (a, b, l) => {
+    if (typeof l === "undefined") return a * b
 
     return a * b * l
 
-}  
- 
+}
+
 // functions   
-type functyoe=(...n:Array<number>)=>Array<number| string> 
- 
-const func3:functyoe=(...n)=>{ 
-    console.log(n) 
+type functyoe = (...n: Array<number>) => Array<number | string>
+
+const func3: functyoe = (...n) => {
+    console.log(n)
     n.forEach(item => {
-        console.log(item ) 
-        
+        console.log(item)
+
     })
     return n
 }
-  
-func3(25,34,34,4,4,5,4) 
-const i=func3(33); 
-console.log(i) 
+
+func3(25, 34, 34, 4, 4, 5, 4)
+const i = func3(33);
+console.log(i)
 
 // function with objects 
-interface product{
-    name:string, 
-    stock?:number, 
-    photo:string, 
-    age:number 
-    readonly id : string
-}  
+interface product {
+    name: string,
+    stock?: number,
+    photo: string,
+    age: number
+    readonly id: string
+}
 
-type getData =(product:product)=>void
+type getData = (product: product) => void
 
- const obj4:getData=(product)=>{ 
-//    product.id="asd"  we can't modify it bcz it is read only 
-// product.name="Gabru"  by accessing this we can vchange its value
-  console.log(product)
- } 
- const productone:product={
-    name:"Rishang", 
-    photo:"profile", 
-    age:20, 
-    id:"afsasdf"
- } 
- obj4((productone)); 
- obj4({
-    name:"aPPLE", 
-    stock:22, 
-    age:4, 
-    photo:"apple", 
-    id:"asfdf"
- }) 
-  
+const obj4: getData = (product) => {
+    //    product.id="asd"  we can't modify it bcz it is read only 
+    // product.name="Gabru"  by accessing this we can vchange its value
+    console.log(product)
+}
+const productone: product = {
+    name: "Rishang",
+    photo: "profile",
+    age: 20,
+    id: "afsasdf"
+}
+obj4((productone));
+obj4({
+    name: "aPPLE",
+    stock: 22,
+    age: 4,
+    photo: "apple",
+    id: "asfdf"
+})
+
 
 //  Never type  
 
- const error=():never=>{
-    throw new Error()  
+const error = (): never => {
+    throw new Error()
     // return new Error() can't bcz type is error 
- } 
-  
- 
-// classes in typescript 
- 
-// basic class in js 
- 
-class player{ 
-    constructor(
-        private height:number,
-        weight:number,  
-        protected power:number
+}
 
-    ){} 
-     
-    get myheight(){
+
+// classes in typescript 
+
+// basic class in js 
+
+class player {
+    constructor(
+        private height: number,
+        weight: number,
+        protected power: number
+
+    ) { }
+
+    get myheight() {
         return this.height
-    } 
-      
-    get mypower(){
+    }
+
+    get mypower() {
         return this.power
     }
- 
-    set heightagain(val:number){ 
-        this.height=val
+
+    set heightagain(val: number) {
+        this.height = val
 
     }
 
-} 
+}
 // const rishang=new player(187,79) ; 
 // rishang.height; 
 // rishang.weight; 
-const rishang= new player(1000,225,100000)  
-console.log(rishang.myheight)  
+const rishang = new player(1000, 225, 100000)
+console.log(rishang.myheight)
 // console.log(rishang.height) can't access bcz its private  
 console.log(rishang)
-console.log(rishang.heightagain=23) 
- 
+console.log(rishang.heightagain = 23)
+
 
 // class theGirlRishangIsFinding {
 //     constructor(
@@ -197,41 +197,41 @@ console.log(rishang.heightagain=23)
 //         public isSheWearSpecs:boolean,
 //         readonly herLoyalty:String,  
 //         private mineSecret:string
-        
+
 //     ){} 
 
 //     get getMySecret(){
 //        return  this.mineSecret
 //     }
 // } 
- 
+
 // const RishangProposedher=new theGirlRishangIsFinding("clean",true,"towardsRishang","safe") 
 // RishangProposedher.herLoyalty="towardsXyz"  //not possible to change bcz it is read only 
 // console.log(RishangProposedher.minesecret) // not possible to access by anyone except rishang  
- 
+
 
 // Dom in ts 
- 
+
 //  type assertion  
 // there are three ways to tell ts  
 // 1 const btn=document.getElementById('btn') as HTMLElement   
 // 2 const btn= <HTMLElement> document.getElementById("btn"); 
-const btn=document.getElementById("btn")! 
-btn.onclick=()=>{
-    btn.innerText="clicked"
-} 
-const form=document.getElementById("myform") as HTMLFormElement  
-const input=document.querySelector("input") as HTMLInputElement
-const h2=document.getElementById('number') !
+const btn = document.getElementById("btn")!
+btn.onclick = () => {
+    btn.innerText = "clicked"
+}
+const form = document.getElementById("myform") as HTMLFormElement
+const input = document.querySelector("input") as HTMLInputElement
+const h2 = document.getElementById('number')!
 
- form.onsubmit=(e)=>{ 
-    e.preventDefault(); 
-    const value=Number(input.value)   
-    let  sum =20 
-    const total =value+ sum 
-    h2.textContent= total.toString()   
+form.onsubmit = (e) => {
+    e.preventDefault();
+    const value = Number(input.value)
+    let sum = 20
+    const total = value + sum
+    h2.textContent = total.toString()
 
- } 
+}
 
 //  interface obj5{
 //     name:string, 
@@ -245,43 +245,110 @@ const h2=document.getElementById('number') !
 //   const geteamil=():string=>{
 //     return obj5.name
 //   }  
-   
+
 //   const getName=():string=>{
 //     return obj5.name
 //   } 
-   
+
 //   const getData=(key:string):string=>{ 
 //     return obj5[key]
 
 //   } 
 // in the above example we are getting error  
-interface obj5{
-//    [key:string]:string 
-   name:string, 
-   email:string 
- } 
+interface obj5 {
+    //    [key:string]:string 
+    name: string,
+    email: string
+}
 
- const obj5:obj5={
-    name:"rishang", 
-    email:"rishangkumar9693@gmail.com",  
- 
-    
- }  
- const key="name"
- obj5[key as keyof obj5]
+const obj5: obj5 = {
+    name: "rishang",
+    email: "rishangkumar9693@gmail.com",
 
-  const getName=():string=>{
+
+}
+const key = "name"
+obj5[key as keyof obj5]
+
+const getName = (): string => {
     return obj5["name"]
-  }  
-   
-  const getEmail=():string=>{
+}
+
+const getEmail = (): string => {
     return obj5["email"]
-  } 
-   
-  const getData=(key : keyof obj5):string=>{ 
-       return obj5[key]
-  } 
-  console.log(getEmail()) 
-  console.log(getName()) 
-  console.log(getData("name")) 
-  console.log(getData("email"))
+}
+
+const getData = (key: keyof obj5): string => {
+    return obj5[key]
+}
+console.log(getEmail())
+console.log(getName())
+console.log(getData("name"))
+console.log(getData("email"))
+
+// utility type 
+
+// partial type  
+
+type User = {
+    name: string,
+    email: string
+}
+
+// partial type if we want that property like optinal then we can use partial type  
+
+type user2 = Partial<User>
+
+// required  
+type user3 = Required<user2> // OPPPOSITE of partial everything is required  
+
+const user: Required<user2> = {
+    name: "Rishang",
+    email: "rishangkumar9693@gmail.com"
+}
+
+interface userInfo {
+    age: number
+    dob: number | string
+}
+type usernames = "harry" | "levi" | "Rishang" | "jalaj"
+
+const user5: Record<username, userInfo> = {
+    harry: {
+        age: 19,
+        dob: 16
+    },
+    levi: {
+        age: 20,
+        dob: 11
+    },
+    Rishang: {
+        age: 20,
+        dob: 14
+    }, jalaj: {
+        age: 21,
+        dob: "feb"
+    }
+
+} 
+ 
+// pick 
+interface orderInfo{
+    readonly id:string, 
+    city:string, 
+    state:string, 
+    status:string, 
+} 
+ 
+type shippingInfo=Pick<orderInfo,"city"|"state" | "status">  
+ 
+const user6:shippingInfo={
+    city:"Samastipur", 
+    state:"bihar",  
+    status:"completed"
+
+} 
+ 
+// omit  =>  opposite to pick  like in pick we write which we want to pick and in this we write which we want to leave  
+ 
+// Exclude 
