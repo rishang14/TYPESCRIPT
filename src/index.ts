@@ -451,4 +451,5 @@ const func6= <T ,K extends keyof T>(user:T[],property:K ,value:T[K])=>{
 const filterPersonByName=func6(users,"name","rishang");  
 const filterPersonByAge= func6(users,"age",10)
 console.log(filterPersonByAge) 
-filterPersonByAge.map(item => console.log(item.name))
+filterPersonByAge.map(item => console.log(item.name)) 
+ 
