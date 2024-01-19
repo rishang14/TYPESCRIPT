@@ -197,3 +197,59 @@ const user6 = {
 };
 // omit  =>  opposite to pick  like in pick we write which we want to pick and in this we write which we want to leave  
 // Exclude 
+//  generics   in ts 
+const func = (n) => {
+    //  we use  T basically   bcz it is used in the industry 
+    let v;
+    return n;
+};
+const ans = func(2);
+const ans1 = func("baa");
+const ans2 = func(true);
+// now after wirting variablew name we can also access their feauture 
+// example  
+// ans. we can access all the number func 
+// ans1. we can access  the string feature  
+//   we can also pass multiple gneric like this  
+const func4 = (n, o) => {
+    return { n, o };
+};
+const ans4 = func4(20, "hello");
+const Person = {
+    name: "rishang",
+    age: 20
+};
+const Person2 = {
+    name: "rishang",
+    age: 30,
+    email: "rishang@gmail.com"
+};
+const func5 = (n, o) => {
+    return { n, o };
+};
+const ans5 = func5(Person, Person2);
+const users = [
+    {
+        name: "rishang",
+        age: 300,
+    },
+    {
+        name: "jalaj",
+        age: 10,
+    },
+    {
+        name: "paras",
+        age: 200,
+    },
+    {
+        name: "harry",
+        age: 10,
+    }
+];
+const func6 = (user, property, value) => {
+    return user.filter(item => item[property] === value);
+};
+const filterPersonByName = func6(users, "name", "rishang");
+const filterPersonByAge = func6(users, "age", 10);
+console.log(filterPersonByAge);
+filterPersonByAge.map(item => console.log(item.name));
