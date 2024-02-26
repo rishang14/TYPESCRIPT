@@ -87,10 +87,10 @@ import './style.css'
  const TodosArray:Array<Todo>=[] ; 
   
 const Form=document.getElementById("myform") as HTMLFormElement; 
-const input=document.getElementById("todoInput") as HTMLInputElement  
-const todosdiv=document.getElementById("todos") as HTMLDivElement
+const input=document.getElementById("todoInput") as HTMLInputElement;
+const todosdiv=document.getElementById("todos") as HTMLDivElement;
  
-Form.onsubmit =(e)=>{ 
+Form.onsubmit =(e:SubmitEvent)=>{ 
   e.preventDefault(); 
     
   const todo:Todo={
@@ -107,7 +107,6 @@ Form.onsubmit =(e)=>{
 const renderTodo=(TodoArray:Todo[])=>{ 
   todosdiv.innerText=""
   TodoArray.map(item=>{ 
-    console.log(item.title)
     generatetodo(item.title,item.id)
   })
 
