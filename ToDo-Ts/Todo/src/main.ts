@@ -70,7 +70,7 @@ import './style.css'
 
 //   todoContainer.innerText = ""
 //   TodoArray.map(item => {
-//     generateTodoItem(item.title, item.isCompleted, item.id)
+//    
 
 //   })
 
