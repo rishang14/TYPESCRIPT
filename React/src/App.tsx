@@ -2,6 +2,7 @@
 import Box from "./Components/Box";  
 import DetailedUsestate from "./Components/detailedUsestate";
 import Counters from "./Components/counters";
+import Todo from "./Components/Todo";
 
  const  App=()=>{ 
  const [val,setval] =useState<string>("")
@@ -11,7 +12,8 @@ import Counters from "./Components/counters";
       hello
       <Box label={"Search"} value={val} onchange={setval}/>  
       <DetailedUsestate/> 
-      <Counters/>
+      <Counters/> 
+      <Todo/>
       
     </div>
        
