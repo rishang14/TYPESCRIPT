@@ -43,40 +43,7 @@ import './style.css'
 
 //   //  creating p for title 
 //   const para: HTMLParagraphElement = document.createElement("p")
-//   para.innerText = value
-
-//   //  creating delete button 
-//   const button: HTMLButtonElement = document.createElement("button")
-//   button.innerText = "x"
-//   button.onclick = () => {
-//     deletetodo(id)
-//   }
-
-//   //   appending all the item  
-
-//   todo.append(checkbox, para, button)
-//   todoContainer.append(todo)
-
-// }
-// const deletetodo = (id: string) => {
-
-//   const idx = TodoArray.findIndex(item => item.id === id)
-//   TodoArray.splice(idx, 1)
-//   renderTodo(TodoArray)
-// }
-
-
-// const renderTodo = (TodoArray:Todo[]) => {
-
-//   todoContainer.innerText = ""
-//   TodoArray.map(item => {
-//    
-
-//   })
-
-// } 
- 
-// again writing  
+//   para.innerText
 
  interface Todo {
   title:string, 
