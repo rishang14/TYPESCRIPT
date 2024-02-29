@@ -130,5 +130,6 @@ const deletetodo =(id:string)=>{
   TodosArray.splice(filter,1)
   renderTodo(TodosArray)
 
-}
+} 
+
  
